@@ -33,7 +33,7 @@
         }
 
         [Fact]
-        public void createValidatorResultFromCombinedShouldReturnFalure()
+        public void CreateValidatorResultFromCombinedShouldReturnFalure()
         {
             var message1 = "message 1";
             var message4 = "message 4";
@@ -58,7 +58,7 @@
         }
 
         [Fact]
-        public void createValidatorResultFromMultipleFailureShouldReturnFalure()
+        public void CreateValidatorResultFromMultipleFailureShouldReturnFalure()
         {
             var message1 = "message 1";
             var message2 = "message 2";
@@ -87,7 +87,7 @@
         }
 
         [Fact]
-        public void createValidatorResultFromMultipleSuccessShouldReturnSuccess()
+        public void CreateValidatorResultFromMultipleSuccessShouldReturnSuccess()
         {
             var result1 = ValidationResult.Success();
             var result2 = ValidationResult.Success();
