@@ -1,10 +1,10 @@
-﻿namespace csOdin.Validator.Tests
+﻿namespace csOdin.Validator.Tests.ValidationResults
 {
     using csOdin.Validator;
     using FluentAssertions;
     using Xunit;
 
-    public class ValidationResultsTests
+    public class CreateTests
     {
         [Theory]
         [InlineData("message 1")]
@@ -12,7 +12,7 @@
         [InlineData("message 3")]
         [InlineData("message 4")]
         [InlineData("message 5")]
-        public void CreateFailureShouldReturnFailureResultWithMessage(string message)
+        public void FailureShouldReturnFailureResultWithMessage(string message)
         {
             var result = ValidationResult.Failure(message);
             result.Should().BeOfType(typeof(ValidationResult));
@@ -23,7 +23,7 @@
         }
 
         [Fact]
-        public void CreateSuccessShouldReturnSuccessResult()
+        public void SuccessShouldReturnSuccessResult()
         {
             var result = ValidationResult.Success();
             result.Should().BeOfType(typeof(ValidationResult));
@@ -33,7 +33,7 @@
         }
 
         [Fact]
-        public void CreateValidatorResultFromCombinedShouldReturnFalure()
+        public void ValidatorResultFromCombinedShouldReturnFalure()
         {
             var message1 = "message 1";
             var message4 = "message 4";
@@ -58,7 +58,7 @@
         }
 
         [Fact]
-        public void CreateValidatorResultFromMultipleFailureShouldReturnFalure()
+        public void ValidatorResultFromMultipleFailureShouldReturnFalure()
         {
             var message1 = "message 1";
             var message2 = "message 2";
@@ -87,7 +87,7 @@
         }
 
         [Fact]
-        public void CreateValidatorResultFromMultipleSuccessShouldReturnSuccess()
+        public void ValidatorResultFromMultipleSuccessShouldReturnSuccess()
         {
             var result1 = ValidationResult.Success();
             var result2 = ValidationResult.Success();

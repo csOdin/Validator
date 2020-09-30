@@ -14,11 +14,5 @@
             ShouldBreakOnFailure = true;
             return this;
         }
-
-        public ValidationStep<T> ContinueOnFailure()
-        {
-            ShouldBreakOnFailure = false;
-            return this;
-        }
     }
 }
