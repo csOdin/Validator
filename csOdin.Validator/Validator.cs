@@ -11,11 +11,11 @@
 
         private List<ValidationStep<T>> _validationSteps { get; set; } = new List<ValidationStep<T>>();
 
-        public async Task<ValidationResults> Validate(T command)
+        public async Task<ValidationResult> Validate(T command)
         {
             Setup(command);
 
-            var results = new ValidationResults();
+            var results = new ValidationResult();
 
             foreach (var step in _validationSteps)
             {
@@ -34,7 +34,7 @@
             return results;
         }
 
-        protected ValidationStep<T> AddValidationStep(Func<T, Task<ValidationResults>> validateFunction)
+        protected ValidationStep<T> AddValidationStep(Func<T, Task<ValidationResult>> validateFunction)
         {
             var newStep = new ValidationStep<T>
             {

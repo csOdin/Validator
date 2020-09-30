@@ -4,6 +4,6 @@
 
     public interface IValidator<T>
     {
-        Task<ValidationResults> Validate(T command);
+        Task<ValidationResult> Validate(T command);
     }
 }

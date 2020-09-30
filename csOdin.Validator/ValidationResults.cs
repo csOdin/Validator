@@ -2,12 +2,12 @@
 {
     using System.Collections.Generic;
 
-    public class ValidationResults
+    public class ValidationResult
     {
         public static bool DefaultConfigureAwait;
         public static string ErrorMessagesSeparator;
 
-        public ValidationResults()
+        public ValidationResult()
         {
             Errors = new List<string>();
             IsSuccess = true;
@@ -18,9 +18,9 @@
         public bool IsFailure => !IsSuccess;
         public bool IsSuccess { get; private set; }
 
-        public static ValidationResults Failure(string message)
+        public static ValidationResult Failure(string message)
         {
-            var result = new ValidationResults
+            var result = new ValidationResult
             {
                 IsSuccess = false
             };
@@ -28,16 +28,16 @@
             return result;
         }
 
-        public static ValidationResults Success()
+        public static ValidationResult Success()
         {
-            var result = new ValidationResults
+            var result = new ValidationResult
             {
                 IsSuccess = true
             };
             return result;
         }
 
-        public void Add(ValidationResults result)
+        public void Add(ValidationResult result)
         {
             if (result.IsSuccess)
             {

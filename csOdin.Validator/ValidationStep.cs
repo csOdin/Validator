@@ -5,7 +5,7 @@
 
     public class ValidationStep<T>
     {
-        public Func<T, Task<ValidationResults>> ValidateFunction { get; set; }
+        public Func<T, Task<ValidationResult>> ValidateFunction { get; set; }
 
         internal bool ShouldBreakOnFailure { get; private set; } = false;
 
