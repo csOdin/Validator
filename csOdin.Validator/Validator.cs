@@ -36,6 +36,11 @@
 
         protected ValidationStep<T> AddValidationStep(Func<T, Task<ValidationResult>> validateFunction)
         {
+            if (validateFunction == null)
+            {
+                return null;
+            }
+
             var newStep = new ValidationStep<T>
             {
                 ValidateFunction = validateFunction,
@@ -43,6 +48,16 @@
 
             _validationSteps.Add(newStep);
             return newStep;
+        }
+
+        protected ValidationStep<T> AddValidationStep(ValidationStep<T> validationStep)
+        {
+            if (validationStep == null)
+            {
+                return null;
+            }
+            _validationSteps.Add(validationStep);
+            return validationStep;
         }
 
         protected void BreakOnAnyFailure() => _breakOnAnyFailure = true;
