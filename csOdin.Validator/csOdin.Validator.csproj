@@ -2,6 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>csOdin</Authors>
+    <Company>csOdin</Company>
+    <PackageTags>DDD Validator Validation NetCore csOdin</PackageTags>
+    <PackageProjectUrl>https://github.com/C-Odin/Validator</PackageProjectUrl>
+    <PackageId>csOdin.Validator</PackageId>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
 </Project>
