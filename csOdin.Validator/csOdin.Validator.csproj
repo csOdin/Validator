@@ -9,6 +9,8 @@
     <PackageProjectUrl>https://github.com/C-Odin/Validator</PackageProjectUrl>
     <PackageId>csOdin.Validator</PackageId>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Description>Validator for DDD Entities and commands</Description>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
 </Project>
