@@ -37,10 +37,10 @@
             Func<string, Task<ValidationResult>> s3 = (string a) => Task.FromResult<ValidationResult>(ValidationResult.Success());
             Func<string, Task<ValidationResult>> s4 = (string a) => Task.FromResult(ValidationResult.Success());
 
-            _validationStepSuccess1 = new ValidationStep<string>() { ValidateFunction = s1 };
-            _validationStepSuccess2 = new ValidationStep<string>() { ValidateFunction = s2 };
-            _validationStepSuccess3 = new ValidationStep<string>() { ValidateFunction = s3 };
-            _validationStepSuccess4 = new ValidationStep<string>() { ValidateFunction = s4 };
+            _validationStepSuccess1 = ValidationStep<string>.Create(s1);
+            _validationStepSuccess2 = ValidationStep<string>.Create(s2);
+            _validationStepSuccess3 = ValidationStep<string>.Create(s3);
+            _validationStepSuccess4 = ValidationStep<string>.Create(s4);
         }
     }
 }

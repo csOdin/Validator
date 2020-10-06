@@ -5,11 +5,46 @@
     using System.Linq;
     using System.Threading.Tasks;
 
-    public abstract class Validator<T> : IValidator<T>
+    public class Validator<T> : IValidator<T>
     {
         private bool _breakOnAnyFailure { get; set; } = false;
 
         private List<ValidationStep<T>> _validationSteps { get; set; } = new List<ValidationStep<T>>();
+
+        public ValidationStep<T> AddValidationStep(Func<T, Task<ValidationResult>> validateFunction)
+        {
+            if (validateFunction == null)
+            {
+                return null;
+            }
+
+            var newStep = ValidationStep<T>.Create(validateFunction);
+            _validationSteps.Add(newStep);
+            return newStep;
+        }
+
+        public ValidationStep<T> AddValidationStep(Func<T, ValidationResult> validateFunction)
+        {
+            if (validateFunction == null)
+            {
+                return null;
+            }
+
+            var newStep = ValidationStep<T>.Create(validateFunction);
+
+            _validationSteps.Add(newStep);
+            return newStep;
+        }
+
+        public ValidationStep<T> AddValidationStep(ValidationStep<T> validationStep)
+        {
+            if (validationStep == null)
+            {
+                return null;
+            }
+            _validationSteps.Add(validationStep);
+            return validationStep;
+        }
 
         public async Task<ValidationResult> Validate(T command)
         {
@@ -19,7 +54,15 @@
 
             foreach (var step in _validationSteps)
             {
-                var result = await step.ValidateFunction(command);
+                ValidationResult result;
+                if (step.IsAsync)
+                {
+                    result = await step.AsyncValidateFunction(command);
+                }
+                else
+                {
+                    result = step.ValidateFunction(command);
+                }
                 results.Add(result);
 
                 if (result.IsFailure)
@@ -32,32 +75,6 @@
             }
 
             return results;
-        }
-
-        protected ValidationStep<T> AddValidationStep(Func<T, Task<ValidationResult>> validateFunction)
-        {
-            if (validateFunction == null)
-            {
-                return null;
-            }
-
-            var newStep = new ValidationStep<T>
-            {
-                ValidateFunction = validateFunction,
-            };
-
-            _validationSteps.Add(newStep);
-            return newStep;
-        }
-
-        protected ValidationStep<T> AddValidationStep(ValidationStep<T> validationStep)
-        {
-            if (validationStep == null)
-            {
-                return null;
-            }
-            _validationSteps.Add(validationStep);
-            return validationStep;
         }
 
         protected void BreakOnAnyFailure() => _breakOnAnyFailure = true;
@@ -74,6 +91,9 @@
 
         protected void ClearValidationSteps() => _validationSteps.Clear();
 
-        protected abstract void Setup(T command);
+        protected virtual void Setup(T command)
+        {
+            return;
+        }
     }
 }

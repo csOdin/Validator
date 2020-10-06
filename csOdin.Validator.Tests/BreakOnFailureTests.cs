@@ -93,10 +93,10 @@
             Func<string, Task<ValidationResult>> f3 = (string a) => Task.FromResult<ValidationResult>(ValidationResult.Failure(_message3));
             Func<string, Task<ValidationResult>> f4 = (string a) => Task.FromResult<ValidationResult>(ValidationResult.Failure(_message4));
 
-            _validationStepSuccess1 = new ValidationStep<string>() { ValidateFunction = s1 };
-            _validationStepFailure2 = new ValidationStep<string>() { ValidateFunction = f2 };
-            _validationStepFailure3 = new ValidationStep<string>() { ValidateFunction = f3 };
-            _validationStepFailure4 = new ValidationStep<string>() { ValidateFunction = f4 };
+            _validationStepSuccess1 = ValidationStep<string>.Create(s1);
+            _validationStepFailure2 = ValidationStep<string>.Create(f2);
+            _validationStepFailure3 = ValidationStep<string>.Create(f3);
+            _validationStepFailure4 = ValidationStep<string>.Create(f4);
         }
     }
 }
