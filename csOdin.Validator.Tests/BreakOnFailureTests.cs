@@ -32,7 +32,7 @@
                 _validationStepFailure3,
                 _validationStepFailure4);
 
-            var result = validator.Validate("command").Result;
+            var result = validator.Validate("command");
             result.Should().BeOfType(typeof(ValidationResult));
             result.IsFailure.Should().BeTrue();
             result.ErrorCount.Should().Be(2);
@@ -52,7 +52,7 @@
                 _validationStepFailure3,
                 _validationStepFailure4);
 
-            var result = validator.Validate("command").Result;
+            var result = validator.Validate("command");
             result.Should().BeOfType(typeof(ValidationResult));
             result.IsFailure.Should().BeTrue();
             result.ErrorCount.Should().Be(1);
@@ -72,7 +72,7 @@
                 _validationStepFailure3,
                 _validationStepFailure4);
 
-            var result = validator.Validate("command").Result;
+            var result = validator.Validate("command");
             result.Should().BeOfType(typeof(ValidationResult));
             result.IsFailure.Should().BeTrue();
             result.ErrorCount.Should().Be(3);

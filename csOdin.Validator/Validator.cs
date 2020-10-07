@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading;
     using System.Threading.Tasks;
 
     public class Validator<T> : IValidator<T>
@@ -46,7 +47,7 @@
             return validationStep;
         }
 
-        public async Task<ValidationResult> Validate(T command)
+        public ValidationResult Validate(T command)
         {
             Setup(command);
 
@@ -57,7 +58,7 @@
                 ValidationResult result;
                 if (step.IsAsync)
                 {
-                    result = await step.AsyncValidateFunction(command);
+                    result = Task.Run(() => step.AsyncValidateFunction(command), new CancellationToken()).GetAwaiter().GetResult();
                 }
                 else
                 {

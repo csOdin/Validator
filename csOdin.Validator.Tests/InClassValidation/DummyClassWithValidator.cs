@@ -22,7 +22,7 @@
 
             var result = validator.Validate(command);
 
-            return result.Result.ToResultWithValue(entity);
+            return result.ToResultWithValue(entity);
         }
 
         private ValidationResult SetName(DummyCommand arg)

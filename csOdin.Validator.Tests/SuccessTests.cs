@@ -25,7 +25,7 @@
                 _validationStepSuccess3,
                 _validationStepSuccess4);
 
-            var result = validator.Validate("command").Result;
+            var result = validator.Validate("command");
             result.Should().BeOfType(typeof(ValidationResult));
             result.IsSuccess.Should().BeTrue();
         }
