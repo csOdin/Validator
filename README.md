@@ -3,7 +3,7 @@ An abstract validator class to esae validation of commands
 
 ## External Validator
 
-```
+```charp
 public class MyCommandValidator : Validator<MyCommand>
 {
   protected override void Setup(MyCommand command)
@@ -27,7 +27,7 @@ public class MyCommandValidator : Validator<MyCommand>
 ```
 
 ### In Class Validator
-```
+```charp
 
 public class MyCommand
 {
@@ -90,7 +90,7 @@ public class MyClass
 
 ## Sample of use
 
-```
+```charp
 public class CreateUserCommand
 {
   public property string Name {get; set;}
