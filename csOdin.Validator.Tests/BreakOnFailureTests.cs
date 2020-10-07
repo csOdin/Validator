@@ -83,20 +83,20 @@
 
         private void ResetValidationSteps()
         {
-            Func<string, Task<ValidationResult>> s1 = (string a) => Task.FromResult<ValidationResult>(ValidationResult.Success());
-            Func<string, Task<ValidationResult>> s2 = (string a) => Task.FromResult(ValidationResult.Success());
-            Func<string, Task<ValidationResult>> s3 = (string a) => Task.FromResult<ValidationResult>(ValidationResult.Success());
-            Func<string, Task<ValidationResult>> s4 = (string a) => Task.FromResult(ValidationResult.Success());
+            Func<string, Task<ValidationResult>> successValidationFunction1 = (string a) => Task.FromResult<ValidationResult>(ValidationResult.Success());
+            Func<string, Task<ValidationResult>> successValidationFunction2 = (string a) => Task.FromResult(ValidationResult.Success());
+            Func<string, Task<ValidationResult>> successValidationFunction3 = (string a) => Task.FromResult<ValidationResult>(ValidationResult.Success());
+            Func<string, Task<ValidationResult>> successValidationFunction4 = (string a) => Task.FromResult(ValidationResult.Success());
 
-            Func<string, Task<ValidationResult>> f1 = (string a) => Task.FromResult<ValidationResult>(ValidationResult.Failure(_message1));
-            Func<string, Task<ValidationResult>> f2 = (string a) => Task.FromResult<ValidationResult>(ValidationResult.Failure(_message2));
-            Func<string, Task<ValidationResult>> f3 = (string a) => Task.FromResult<ValidationResult>(ValidationResult.Failure(_message3));
-            Func<string, Task<ValidationResult>> f4 = (string a) => Task.FromResult<ValidationResult>(ValidationResult.Failure(_message4));
+            Func<string, Task<ValidationResult>> failureValidationFunction1 = (string a) => Task.FromResult<ValidationResult>(ValidationResult.Failure(_message1));
+            Func<string, Task<ValidationResult>> failureValidationFunction2 = (string a) => Task.FromResult<ValidationResult>(ValidationResult.Failure(_message2));
+            Func<string, Task<ValidationResult>> failureValidationFunction3 = (string a) => Task.FromResult<ValidationResult>(ValidationResult.Failure(_message3));
+            Func<string, Task<ValidationResult>> failureValidationFunction4 = (string a) => Task.FromResult<ValidationResult>(ValidationResult.Failure(_message4));
 
-            _validationStepSuccess1 = ValidationStep<string>.Create(s1);
-            _validationStepFailure2 = ValidationStep<string>.Create(f2);
-            _validationStepFailure3 = ValidationStep<string>.Create(f3);
-            _validationStepFailure4 = ValidationStep<string>.Create(f4);
+            _validationStepSuccess1 = ValidationStep<string>.Create(successValidationFunction1);
+            _validationStepFailure2 = ValidationStep<string>.Create(failureValidationFunction2);
+            _validationStepFailure3 = ValidationStep<string>.Create(failureValidationFunction3);
+            _validationStepFailure4 = ValidationStep<string>.Create(failureValidationFunction4);
         }
     }
 }
