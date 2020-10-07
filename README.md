@@ -49,7 +49,7 @@ public class MyClass
     {
         var instance = new MyClass();
 
-            var validator = new Validator<Myommand>();
+            var validator = new Validator<MyCommand>();
             validator.AddValidationStep(instance.SetProperty1);
             validator.AddValidationStep(instance.SetProperty2);
             (Repeat for each validation step)
