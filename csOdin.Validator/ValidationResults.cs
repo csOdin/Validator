@@ -24,6 +24,7 @@
             {
                 IsSuccess = false
             };
+            
             result.Errors.Add(message);
             return result;
         }
@@ -34,6 +35,7 @@
             {
                 IsSuccess = false
             };
+            
             result.Errors.AddRange(messages);
             return result;
         }
@@ -77,7 +79,7 @@
             return result;
         }
 
-        public static ValidationResult<T> Failure(IEnumerable<string> messages)
+        public static new ValidationResult<T> Failure(IEnumerable<string> messages)
         {
             var result = new ValidationResult<T>
             {
