@@ -1,8 +1,5 @@
 ﻿namespace csOdin.Validator.Tests
 {
-    using System;
-    using System.Threading.Tasks;
-
     internal class DummyValidator<T> : Validator<T>
     {
         public static Validator<T> Create(bool breakOnAnyFailure, params ValidationStep<T>[] validationSteps)
@@ -21,8 +18,8 @@
             return validator;
         }
 
-        protected override void Setup(T command) => AddValidationStep(validationFunc1);
-
-        private Task<ValidationResult> validationFunc1(T arg) => throw new NotImplementedException();
+        protected override void Setup(T command)
+        {
+        }
     }
 }
