@@ -6,11 +6,11 @@
     <Authors>csOdin</Authors>
     <Company>csOdin</Company>
     <PackageTags>DDD Validator Validation NetCore csOdin</PackageTags>
-    <PackageProjectUrl>https://github.com/C-Odin/Validator</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/csOdin/Validator</PackageProjectUrl>
     <PackageId>csOdin.Validator</PackageId>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Description>Validator for DDD Entities and commands</Description>
-    <Version>1.0.1</Version>
+    <Description>Validator for Entities and commands</Description>
+    <Version>1.1.1</Version>
   </PropertyGroup>
 
 </Project>
