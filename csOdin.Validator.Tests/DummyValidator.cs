@@ -1,8 +1,10 @@
-﻿namespace csOdin.Validator.Tests
+﻿using System;
+
+namespace csOdin.Validator.Tests
 {
     internal class DummyValidator<T> : Validator<T>
     {
-        public static Validator<T> Create(bool breakOnAnyFailure, params ValidationStep<T>[] validationSteps)
+        public static Validator<T> Create(bool breakOnAnyFailure, params InternalValidationStep<T>[] validationSteps)
         {
             var validator = new DummyValidator<T>();
 
@@ -15,6 +17,9 @@
             {
                 validator.AddValidationStep(validationStep);
             }
+
+            validator.AddValidatonStep<ExternalValidationStep>(Guid.NewGuid());
+
             return validator;
         }
 
