@@ -2,7 +2,7 @@
 {
     using System;
 
-    internal class ExternalValidationStep : ExternalValidatorStep, IExternalValidationStep
+    internal class ExternalValidationStep : Validator.ExternalValidationStep, IExternalValidationStep
     {
         public ExternalValidationStep(Guid id)
         {

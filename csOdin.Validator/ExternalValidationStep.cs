@@ -1,6 +1,6 @@
 ﻿namespace csOdin.Validator
 {
-    public abstract class ExternalValidatorStep : ValidationStep
+    public abstract class ExternalValidationStep : ValidationStep
     {
         public override bool IsExternalValidationStep
         {
