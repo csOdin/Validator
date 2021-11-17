@@ -12,10 +12,10 @@
         private const string _message3 = "message 3";
         private const string _message4 = "message 4";
 
-        private ValidationStep<string> _validationStepFailure2;
-        private ValidationStep<string> _validationStepFailure3;
-        private ValidationStep<string> _validationStepFailure4;
-        private ValidationStep<string> _validationStepSuccess1;
+        private InternalValidationStep<string> _validationStepFailure2;
+        private InternalValidationStep<string> _validationStepFailure3;
+        private InternalValidationStep<string> _validationStepFailure4;
+        private InternalValidationStep<string> _validationStepSuccess1;
 
         [Fact]
         public void ShouldBreakOnFailure()
@@ -93,10 +93,10 @@
             Func<string, Task<ValidationResult>> failureValidationFunction3 = (string a) => Task.FromResult<ValidationResult>(ValidationResult.Failure(_message3));
             Func<string, Task<ValidationResult>> failureValidationFunction4 = (string a) => Task.FromResult<ValidationResult>(ValidationResult.Failure(_message4));
 
-            _validationStepSuccess1 = ValidationStep<string>.Create(successValidationFunction1);
-            _validationStepFailure2 = ValidationStep<string>.Create(failureValidationFunction2);
-            _validationStepFailure3 = ValidationStep<string>.Create(failureValidationFunction3);
-            _validationStepFailure4 = ValidationStep<string>.Create(failureValidationFunction4);
+            _validationStepSuccess1 = InternalValidationStep<string>.Create(successValidationFunction1);
+            _validationStepFailure2 = InternalValidationStep<string>.Create(failureValidationFunction2);
+            _validationStepFailure3 = InternalValidationStep<string>.Create(failureValidationFunction3);
+            _validationStepFailure4 = InternalValidationStep<string>.Create(failureValidationFunction4);
         }
     }
 }
